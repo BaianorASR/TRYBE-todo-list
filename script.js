@@ -1,18 +1,31 @@
-const paragrafo = document.querySelector('#funcionamento');
+// const paragrafo = document.querySelector('#funcionamento');
 const input = document.querySelector('#texto-tarefa');
 const button = document.querySelector('#criar-tarefa');
 const listaOrdenada = document.querySelector('#lista-tarefas');
 const tarefas = document.getElementsByClassName('tarefas');
 const apagaTudo = document.querySelector('#apaga-tudo');
 const removerFinalizados = document.querySelector('#remover-finalizados');
+const salvarTarefas = document.querySelector('#salvar-tarefas');
+const removerSelecionado = document.querySelector('#remover-selecionado');
+
+// Adiciona tarefa ao apertar enter! NÃO FOI PEDIDO ISSO, COLOQUEI POR VONTADE PROPIA
+input.addEventListener('keyup', (e) => {
+  if (e.keyCode === 13) {
+    criaElementos('#lista-tarefas', 'li', ['class', 'tarefas']);
+  }
+});
+
 // Função que adiciona id ou classe no elemento
 function tag(elem, tipo) {
   elem.setAttribute(tipo[0], tipo[1]);
 }
 
+window.onload = () => {};
+
 // Função que adiciona o texto na li
 function adicionaTexto(elem) {
-  elem.innerText = input.value;
+  const elemento = elem;
+  elemento.innerText = input.value;
   input.value = '';
 }
 
@@ -29,10 +42,8 @@ function criaElementos(paramPai, paramFilho, tipo) {
   if (tipo !== undefined) {
     tag(filho, tipo);
   }
-  if (paramFilho === 'li') {
-    adicionaTexto(filho);
-    escutador(filho);
-  }
+  adicionaTexto(filho);
+  escutador(filho);
 }
 
 //  5 =>
@@ -88,4 +99,32 @@ removerFinalizados.addEventListener('click', () => {
       i -= 1;
     }
   }
+});
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//  ################## BONUS ##########################
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+// 12
+// Salva lista no localStorage
+salvarTarefas.addEventListener('click', () => {
+  localStorage.setItem('backup', listaOrdenada.innerHTML);
+});
+
+// Coloca lista salva no localStorage dentro da ol no load
+window.onload = () => {
+  if (localStorage.getItem('backup')) {
+    listaOrdenada.innerHTML += localStorage.getItem('backup');
+  }
+  // coloca evento para sele novamente apos criados no load
+  for (let i = 0; i < listaOrdenada.children.length; i += 1) {
+    listaOrdenada.children[i].addEventListener('click', seleciona);
+  }
+};
+
+// 14
+// Remove quem estiver selecionado
+removerSelecionado.addEventListener('click', () => {
+  const alvo = document.querySelector('.selecionado');
+  alvo.remove();
 });

@@ -1,0 +1,76 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #2e3440;
+}
+
+h1 {
+  margin-top: 10px;
+  /* font-weight: bold; */
+  font-size: 40px;
+}
+
+#conteiner {
+  width: 80%;
+  height: 90vh;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  background-color: #3B4252;
+  box-shadow: 0 5px 5px 5px rgba(15, 15, 15, 0.034);
+  position: relative;
+  border-radius:10px;
+}
+
+#lista-content {
+  min-height: 60vh;
+  max-height: 60vh;
+  background-color: #ECEFF4;
+  overflow: auto; /* scroll bar na lista se for maior que o limite */
+}
+
+li {
+  text-align: left;
+  padding: 0 10px;
+  list-style-position: inside;
+  background-color: #e5e9f0;
+  font-size: 20px;
+}
+
+li:nth-child(2n + 1) {
+  background-color: #d8dee9;
+}
+
+button {
+  border: none;
+  color: rgb(0, 0, 0);
+  border-radius: 20px;
+  padding: 7px 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 10px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.2);
+}
+
+#criar-tarefa {
+  background-color: #5e81ac;
+}
+#apaga-tudo {
+  background-color: #bf616a;
+}
+#remover-finalizados {
+  background-color: #d08770;
+}
