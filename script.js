@@ -116,11 +116,15 @@ window.onload = () => {
   if (localStorage.getItem('backup')) {
     listaOrdenada.innerHTML += localStorage.getItem('backup');
   }
-  // coloca evento para sele novamente apos criados no load
+  // coloca evento seleciona e completo novamente apos criados no load
   for (let i = 0; i < listaOrdenada.children.length; i += 1) {
     listaOrdenada.children[i].addEventListener('click', seleciona);
+    listaOrdenada.children[i].addEventListener('dblclick', completo);
   }
 };
+
+// 13
+// https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
 
 // 14
 // Remove quem estiver selecionado
