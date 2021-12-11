@@ -3,7 +3,8 @@ const input = document.querySelector('#texto-tarefa');
 const button = document.querySelector('#criar-tarefa');
 const listaOrdenada = document.querySelector('#lista-tarefas');
 const tarefas = document.getElementsByClassName('tarefas');
-
+const apagaTudo = document.querySelector('#apaga-tudo');
+const removerFinalizados = document.querySelector('#remover-finalizados');
 // Função que adiciona id ou classe no elemento
 function tag(elem, tipo) {
   elem.setAttribute(tipo[0], tipo[1]);
@@ -39,12 +40,11 @@ function criaElementos(paramPai, paramFilho, tipo) {
 // Chama a função que cria a li e atualiza para remover a class selecionado de todos li
 button.addEventListener('click', () => {
   criaElementos('#lista-tarefas', 'li', ['class', 'tarefas']);
-  //atualizaElementos();
 });
 
 //  7 - 8 =>
 
-//remove selecionado das li
+// remove selecionado das li
 function desseleciona() {
   for (let i = 0; i < tarefas.length; i += 1) {
     tarefas[i].classList.remove('selecionado');
@@ -53,25 +53,39 @@ function desseleciona() {
 }
 
 // seleciona li
-function seleciona() {
+function seleciona(e) {
   desseleciona();
-  event.target.classList.add('selecionado');
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  e.target.classList.add('selecionado');
+  e.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 // 9 =>
 //  https://www.javascripttutorial.net/dom/css/check-if-an-element-contains-a-class/
 // coloca class completed apos duplo clique, e remove se já tiver
 // tambem coloca e remove o riscado na letra
-function completo() {
-  if (event.target.classList.contains('completed')) {
-    event.target.classList.remove('completed');
-    event.target.style.textDecoration = '';
+function completo(e) {
+  if (e.target.classList.contains('completed')) {
+    e.target.classList.remove('completed');
+    e.target.style.textDecoration = '';
   } else {
-    event.target.classList.add('completed');
-    event.target.style.textDecoration = 'line-through';
+    e.target.classList.add('completed');
+    e.target.style.textDecoration = 'line-through';
   }
 }
 
 // 10 =>
+// Apaga toda a lista
+apagaTudo.addEventListener('click', () => {
+  listaOrdenada.innerHTML = '';
+});
 
+// 11 =>
+// Apaga todos completos da lista
+removerFinalizados.addEventListener('click', () => {
+  for (let i = 0; i < tarefas.length; i += 1) {
+    if (tarefas[i].classList.contains('completed')) {
+      tarefas[i].remove();
+      i -= 1;
+    }
+  }
+});
