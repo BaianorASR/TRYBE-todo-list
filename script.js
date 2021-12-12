@@ -39,6 +39,10 @@ function escutador(elem) {
 
 // Função que cria elementos
 function criaElementos(paramPai, paramFilho, tipo) {
+  // verifica se algo foi digitado
+  if (input.value.length === 0) {
+    return;
+  }
   const filho = document.createElement(paramFilho);
   const pai = document.querySelector(paramPai);
   pai.appendChild(filho);

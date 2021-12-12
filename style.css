@@ -98,13 +98,13 @@ input[type='text']:focus {
   display: inline-block;
   border: none;
   color: #2e3440;
-  border-radius: 5px;
-  padding: 7px 7px;
+  border-radius: 2px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 15px;
-  margin: 20px 5px;
+  font-size: 16px;
+  margin: 16px 0px;
+  padding: 10px;
   cursor: pointer;
 }
 
@@ -130,4 +130,5 @@ button:hover {
 #mover-cima,
 #mover-baixo {
   background-color: #b48ead;
+  margin-left;
 }
