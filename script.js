@@ -7,8 +7,11 @@ const apagaTudo = document.querySelector('#apaga-tudo');
 const removerFinalizados = document.querySelector('#remover-finalizados');
 const salvarTarefas = document.querySelector('#salvar-tarefas');
 const removerSelecionado = document.querySelector('#remover-selecionado');
+const up = document.querySelector('#mover-cima');
+const down = document.querySelector('#mover-baixo');
+const alvo = document.getElementsByClassName('selecionado');
 
-// Adiciona tarefa ao apertar enter! NÃO FOI PEDIDO ISSO, COLOQUEI POR VONTADE PROPIA
+// Adiciona tarefa ao apertar enter! NÃO FOI PEDIDO ISSO, COLOQUEI POR VONTADE PROPIA => 13 = codigo do ENTER
 input.addEventListener('keyup', (e) => {
   if (e.keyCode === 13) {
     criaElementos('#lista-tarefas', 'li', ['class', 'tarefas']);
@@ -126,9 +129,27 @@ window.onload = () => {
 // 13
 // https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
 
+// move selecionado para cima
+up.addEventListener('click', () => {
+  // verifica se esta no topo da lista para ele não voltar de baixo
+  if (alvo[0] === listaOrdenada.firstChild) {
+    return;
+  }
+  listaOrdenada.insertBefore(alvo[0], alvo[0].previousElementSibling);
+});
+
+// move selecionado para baixo
+down.addEventListener('click', () => {
+  const alvoAnterior = alvo[0].nextElementSibling;
+  // verifica se ainda existe item na lista abaixo do selecionado
+  if (alvoAnterior === null) {
+    return;
+  }
+  listaOrdenada.insertBefore(alvo[0], alvoAnterior.nextElementSibling);
+});
+
 // 14
 // Remove quem estiver selecionado
 removerSelecionado.addEventListener('click', () => {
-  const alvo = document.querySelector('.selecionado');
-  alvo.remove();
+  alvo[0].remove();
 });
