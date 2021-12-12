@@ -17,14 +17,15 @@ body {
 }
 
 h1 {
-  margin-top: 10px;
+  margin-top: 30px;
+  padding-top: 15px;
   font-size: 40px;
-  color: #88C0D0
-  ;
+  color: #88c0d0;
 }
 
 p {
-  color: #8FBCBB
+  margin-top: 20px;
+  color: #8fbcbb;
 }
 
 #conteiner {
@@ -35,19 +36,19 @@ p {
   margin-right: auto;
   text-align: center;
   font-family: 'IBM Plex Mono', monospace;
-  background-color: #3B4252;
+  background-color: #3b4252;
   box-shadow: 0 5px 5px 5px rgba(15, 15, 15, 0.065);
   position: relative;
-  border-radius:10px;
+  border-radius: 10px;
 }
 
 #lista-content {
   min-height: 60vh;
   max-height: 60vh;
-  background-color: #ECEFF4;
+  background-color: #eceff4;
   overflow: auto; /* scroll bar na lista se for maior que o limite */
   overflow-wrap: break-word; /* Quebra linha se ficar muito grande https://css-tricks.com/almanac/properties/o/overflow-wrap/ */
-
+  margin-top: 15px;
 }
 
 li {
@@ -58,23 +59,52 @@ li {
   font-size: 20px;
   font-family: 'IBM Plex Mono', monospace;
   font-style: italic;
+  color: #2e3440;
 }
 
 li:nth-child(2n + 1) {
   background-color: #d8dee9;
 }
 
+input {
+  display: inline-block;
+  background-color: #eceff4;
+  width: 70%;
+  padding: 7px 15px;
+  box-sizing: border-box;
+  border: none;
+  color: #4c566a;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 15px;
+}
+
+input[type='text']:focus {
+  background-color: #d8dee9;
+  outline: none; /* borda ao clicar */
+}
+
+#criar-tarefa {
+  display: inline-block;
+  padding: 7px 15px;
+  border: none;
+  margin-left: -10px;
+  margin-top: 10px;
+  font-size: 16.5px;
+  color: #2e3440;
+  border-radius:0 20px 20px 0;
+}
+
 #buttons-content button {
   display: inline-block;
   border: none;
-  color: rgb(0, 0, 0);
+  color: #2e3440;
   border-radius: 5px;
   padding: 7px 7px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 15px;
-  margin: 35px 5px;
+  margin: 20px 5px;
   cursor: pointer;
 }
 
@@ -92,11 +122,12 @@ button:hover {
   background-color: #d08770;
 }
 #remover-selecionado {
-  background-color: #EBCB8B;
+  background-color: #ebcb8b;
 }
 #salvar-tarefas {
-  background-color: #A3BE8C
+  background-color: #a3be8c;
 }
-#mover-cima, #mover-baixo {
-  background-color: #B48EAD
+#mover-cima,
+#mover-baixo {
+  background-color: #b48ead;
 }
