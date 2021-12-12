@@ -131,6 +131,9 @@ window.onload = () => {
 
 // move selecionado para cima
 up.addEventListener('click', () => {
+  if (alvo[0] === undefined) {
+    return;
+  }
   // verifica se esta no topo da lista para ele não voltar de baixo
   if (alvo[0] === listaOrdenada.firstChild) {
     return;
@@ -140,6 +143,9 @@ up.addEventListener('click', () => {
 
 // move selecionado para baixo
 down.addEventListener('click', () => {
+  if (alvo[0] === undefined) {
+    return;
+  }
   const alvoAnterior = alvo[0].nextElementSibling;
   // verifica se ainda existe item na lista abaixo do selecionado
   if (alvoAnterior === null) {
