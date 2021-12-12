@@ -87,7 +87,7 @@ function completo(e) {
     e.target.style.textDecoration = '';
   } else {
     e.target.classList.add('completed');
-    e.target.style.textDecoration = 'line-through';
+    e.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
   }
 }
 

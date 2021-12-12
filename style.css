@@ -49,6 +49,7 @@ p {
   overflow: auto; /* scroll bar na lista se for maior que o limite */
   overflow-wrap: break-word; /* Quebra linha se ficar muito grande https://css-tricks.com/almanac/properties/o/overflow-wrap/ */
   margin-top: 15px;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.065);
 }
 
 li {
@@ -130,5 +131,4 @@ button:hover {
 #mover-cima,
 #mover-baixo {
   background-color: #b48ead;
-  margin-left;
 }
