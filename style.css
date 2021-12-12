@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&display=swap');
+
 * {
   padding: 0;
   margin: 0;
@@ -5,26 +7,36 @@
 }
 
 body {
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: 100%;
+  margin-right: 100%; */
   background-color: #2e3440;
+  background-image: url(./img/background.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 h1 {
   margin-top: 10px;
-  /* font-weight: bold; */
   font-size: 40px;
+  color: #88C0D0
+  ;
+}
+
+p {
+  color: #8FBCBB
 }
 
 #conteiner {
-  width: 80%;
+  width: 80vw;
+  max-width: 700px;
   height: 90vh;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  font-family: 'Baloo Bhaijaan 2', cursive;
+  font-family: 'IBM Plex Mono', monospace;
   background-color: #3B4252;
-  box-shadow: 0 5px 5px 5px rgba(15, 15, 15, 0.034);
+  box-shadow: 0 5px 5px 5px rgba(15, 15, 15, 0.065);
   position: relative;
   border-radius:10px;
 }
@@ -34,6 +46,8 @@ h1 {
   max-height: 60vh;
   background-color: #ECEFF4;
   overflow: auto; /* scroll bar na lista se for maior que o limite */
+  overflow-wrap: break-word; /* Quebra linha se ficar muito grande https://css-tricks.com/almanac/properties/o/overflow-wrap/ */
+
 }
 
 li {
@@ -42,27 +56,30 @@ li {
   list-style-position: inside;
   background-color: #e5e9f0;
   font-size: 20px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-style: italic;
 }
 
 li:nth-child(2n + 1) {
   background-color: #d8dee9;
 }
 
-button {
+#buttons-content button {
+  display: inline-block;
   border: none;
   color: rgb(0, 0, 0);
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 7px 7px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 15px;
-  margin: 10px 10px;
+  margin: 35px 5px;
   cursor: pointer;
 }
 
 button:hover {
-  filter: brightness(1.2);
+  filter: brightness(0.7);
 }
 
 #criar-tarefa {
@@ -73,4 +90,13 @@ button:hover {
 }
 #remover-finalizados {
   background-color: #d08770;
+}
+#remover-selecionado {
+  background-color: #EBCB8B;
+}
+#salvar-tarefas {
+  background-color: #A3BE8C
+}
+#mover-cima, #mover-baixo {
+  background-color: #B48EAD
 }

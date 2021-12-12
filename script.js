@@ -58,7 +58,7 @@ button.addEventListener('click', () => {
 
 //  7 - 8 =>
 
-// remove selecionado das li
+// remove selecionado das li e backgroundColor
 function desseleciona() {
   for (let i = 0; i < tarefas.length; i += 1) {
     tarefas[i].classList.remove('selecionado');
@@ -66,7 +66,7 @@ function desseleciona() {
   }
 }
 
-// seleciona li
+// seleciona li e coloca o backgroundColor
 function seleciona(e) {
   desseleciona();
   e.target.classList.add('selecionado');
@@ -123,6 +123,9 @@ window.onload = () => {
   for (let i = 0; i < listaOrdenada.children.length; i += 1) {
     listaOrdenada.children[i].addEventListener('click', seleciona);
     listaOrdenada.children[i].addEventListener('dblclick', completo);
+    listaOrdenada.children[i].classList.remove('selecionado');
+    listaOrdenada.children[i].removeAttribute('style');
+    // https://stackoverflow.com/questions/1040402/removing-html-element-styles-via-javascript
   }
 };
 
@@ -131,6 +134,7 @@ window.onload = () => {
 
 // move selecionado para cima
 up.addEventListener('click', () => {
+  // verifica se tem item selecionado
   if (alvo[0] === undefined) {
     return;
   }
@@ -141,8 +145,9 @@ up.addEventListener('click', () => {
   listaOrdenada.insertBefore(alvo[0], alvo[0].previousElementSibling);
 });
 
-// move selecionado para baixo
+// Move selecionado para baixo
 down.addEventListener('click', () => {
+  // verifica se tem item selecionado
   if (alvo[0] === undefined) {
     return;
   }
